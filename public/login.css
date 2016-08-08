@@ -1,0 +1,35 @@
+.pageHeader{
+	height: 60px;
+	padding: 10px;
+	background-color: #3a3737;
+	color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+    padding-left: 20px; 
+}
+.appText{
+	float: left;
+}
+.panel-login{
+	margin-top: 100px;
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+}
+.loginHeader{
+	border-color: #9acbf5 !important;
+}
+.signupButton{
+	width: 100%;
+}
+.loginButton{
+	width: 60px;
+	float: right;
+	margin-right: 20px;
+}
+.headerInput{
+	width: 200px;
+	margin-right: 20px;
+	float: left;
+}
+.inputCover{
+	float: right;
+}

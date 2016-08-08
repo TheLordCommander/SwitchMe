@@ -1,0 +1,31 @@
+<div class="row">
+	<div class="col-md-9">
+		
+	</div>
+
+	<div ng-controller="signupCtrl" class="col-md-3 panel panel-login">
+		<div class="panel-body">
+			<form class="form-outer">
+				<div class="form-group">
+					<input class="form-control" type="text" placeholder="Username" ng-model="username"></input>
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="password" placeholder="Password" ng-model="password"></input>
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="password" placeholder="Email Address to register" ng-model="email"></input>
+				</div>
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<button class="btn btn-primary signupButton" ng-click="signup()">Sign Up</button>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						{{signupResult}}
+					</div>	
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
