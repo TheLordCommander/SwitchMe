@@ -3,12 +3,12 @@
 
     $routeProvider.when('/', {
             templateUrl: 'views/login.html',
-            controller: 'loginCtrl'
+            controller: 'signupCtrl'
         })
 
         .when('/home', {
-            templateUrl: 'views/home.html'/*,
-            controller: 'homeCtrl'*/
+            templateUrl: 'views/home.html',
+            controller: 'adminCtrl'
         });
 
     $locationProvider.html5Mode(true);

@@ -1,7 +1,7 @@
 angular.module('signupCtrl', [])
 
 	// inject the Todo service factory into our controller
-	.controller('signupCtrl', ['$scope','$http','signupService','$location', function($scope, $http, signupService,$location) {
+	.controller('signupCtrl', ['$rootScope','$scope','$http','signupService','$location', function($rootScope,$scope, $http, signupService,$location) {
 		
 
 		$scope.signup = function() {
@@ -11,10 +11,13 @@ angular.module('signupCtrl', [])
 				email:this.email
 			};
 			signupService.signupUser(signupData).success(function(data) {
-				if(JSON.parse(data)=="success")
-					$scope.signupResult = "User created successfully";
+				var result = data;
+				if(result == "success"){
+					$location.path('/home');
+					$rootScope.$broadcast('userValidated',signupData.username);
+				}
 				else
-					$scope.signupResult = "Error creating user";
+					$scope.signupResult = result;
 			});
 		};
 

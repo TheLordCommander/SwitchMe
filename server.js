@@ -11,8 +11,8 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
 // configuration ===============================================================
-var connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +  process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" + process.env.OPENSHIFT_MONGODB_DB_HOST + "meanstack";
-mongoose.connect(database.remoteUrl);
+var connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + process.env.OPENSHIFT_APP_NAME;
+mongoose.connect(connection_string);
 
 app.use(express.static('./public'));
 app.use(morgan('dev')); // logging

@@ -6,6 +6,9 @@ angular.module('signupService', []).factory('signupService',
 			},
 			signupUser : function(signupData) {
 				return $http.post('/api/signup', signupData);
+			},
+			updateDetails : function(interviewData) {
+				return $http.post('/api/updateDetails', interviewData);
 			}
 		}
 	}]);

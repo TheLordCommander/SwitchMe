@@ -3,14 +3,25 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<base href="/">
 	<title>Recruitment Login</title>
 
 	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
 	<link href="login.css" rel="stylesheet">
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+
+	
 	<script src="js/controllers/signupCtrl.js"></script>
+	<script src="js/controllers/adminCtrl.js"></script>
 	<script src="js/controllers/loginCtrl.js"></script>
 	<script src="js/services/signupService.js"></script> 
 	<script src="js/appRoute.js"></script> 
@@ -23,14 +34,14 @@
 			Switch Me	
 		</div>
 		
-		<form>
+		<form ng-hide="validLogin">
 			<div class="inputCover">
 				<input class="form-control headerInput" type="text" placeholder="Username" ng-model="username"></input>
 				<input class="form-control headerInput" type="text" placeholder="Password" ng-model="password"></input>
 				<button class="btn btn-primary loginButton" ng-click="login()">Login</button>	
 			</div>
-			
 		</form>
+		<div class="welcomeUser" ng-show="validLogin">Welcome {{username}}</div>
 	</div>
 	<div class="container">
 		<div ng-view></div>	

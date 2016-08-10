@@ -1,3 +1,48 @@
-<div>
-	Home
+<div class="row">
+	<div ng-controller="adminCtrl" class="col-md-4 panel adminBlock">
+		<div class="panel-body">
+			<form name="adminForm" class="form-outer">
+				<div class="form-group row">
+					<div class="col-md-3">Group: </div>
+					<div class="col-md-9">
+						<select class="form-control" ng-model="currGroup" ng-options="x for x in groups "></select>	
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-md-3">Location: </div>
+					<div class="col-md-9">
+						<select class="form-control" ng-model="currLocation" ng-options="x for x in locations "></select>	
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-md-3">Date: </div>
+					<div class="col-md-9">
+						<md-datepicker ng-model="currDate" md-placeholder="Enter date"></md-datepicker>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<button class="btn btn-primary signupButton" ng-click="applyAdmin()">Update Details</button>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-md-12 text-center">
+						{{updateResult}}
+					</div>	
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="col-md-4 panel adminBlock">
+		<div class="panel-body">
+			<form id        =  "uploadForm"
+				    enctype   =  "multipart/form-data"
+				    action    =  "upload"
+				    method    =  "post"
+				>
+				<input type="file" name="file" />Upload
+				<input type="submit" value="Upload" name="submit">
+				</form>
+		</div>
+	</div>
 </div>

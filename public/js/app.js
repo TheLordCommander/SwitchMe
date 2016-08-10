@@ -1,1 +1,1 @@
-angular.module('recruitApp', ['ngRoute','appRoute','signupCtrl', 'loginCtrl', 'signupService']);
+angular.module('recruitApp', ['ngMaterial','ngRoute','appRoute','signupCtrl', 'loginCtrl','adminCtrl', 'signupService']);
