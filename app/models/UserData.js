@@ -12,5 +12,9 @@ module.exports = mongoose.model('UserData', {
     email: {
         type: String,
         default: ''
+    },
+    associateid: {
+        type: Number,
+        default: ''
     }
 });

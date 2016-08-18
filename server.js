@@ -11,7 +11,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
 // configuration ===============================================================
-var connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + process.env.OPENSHIFT_APP_NAME;
+var connection_string = "mongodb://localhost:27017/test";
 mongoose.connect(connection_string);
 
 app.use(express.static('./public'));

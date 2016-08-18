@@ -7,8 +7,8 @@
         })
 
         .when('/home', {
-            templateUrl: 'views/home.html',
-            controller: 'adminCtrl'
+            templateUrl: 'views/home.html'/*,
+            controller: 'adminCtrl'*/
         });
 
     $locationProvider.html5Mode(true);

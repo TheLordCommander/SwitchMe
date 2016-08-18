@@ -9,6 +9,13 @@ angular.module('signupService', []).factory('signupService',
 			},
 			updateDetails : function(interviewData) {
 				return $http.post('/api/updateDetails', interviewData);
+			},
+			fetchEmpList : function() {
+				return $http.post('/api/fetchEmpList');
+			},
+			fetchDetails : function() {
+				return $http.post('/api/getDetails');
 			}
+
 		}
 	}]);

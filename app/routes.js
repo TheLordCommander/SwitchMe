@@ -49,7 +49,8 @@ module.exports = function (app) {
                 UserData.create({
                     username: req.body.username,
                     password: req.body.password,
-                    email:req.body.email
+                    email:req.body.email,
+                    associateid:req.body.associateid
                 }, function (err, todo) {
                     if (err)
                         res.send(err);
@@ -102,17 +103,19 @@ module.exports = function (app) {
                     if(err) {
                         return res.json({error_code:1,err_desc:err, data: null});
                     } 
-
-                    for (var i = 0; i < result.length; i++) {
-                        EmpData.create({
-                            eid: result[i]['eid'],
-                            ename:result[i]['ename'],
-                            edesg:result[i]['edesg'],
-                            egroup:result[i]['egroup']
-                        }, function (err, todo) {
-                            
-                    });
-                    }
+                    EmpData.remove({},function() {
+                         for (var i = 0; i < result.length; i++) {
+                                EmpData.create({
+                                    eid: result[i]['eid'],
+                                    ename:result[i]['ename'],
+                                    edesg:result[i]['edesg'],
+                                    egroup:result[i]['egroup']
+                                }, function (err, todo) {
+                                    
+                            });
+                        }
+                    })
+                   
 
                     res.json({error_code:0,err_desc:null, data: result});
                 });
@@ -120,5 +123,18 @@ module.exports = function (app) {
                 res.json({error_code:1,err_desc:"Corupted excel file"});
             }
         });
+    });
+
+    app.post('/api/fetchEmpList', function (req, res) {
+      EmpData.find({
+        }, function(err,list) {
+            res.json(list);
+        })
+    });
+    app.post('/api/getDetails', function (req, res) {
+      InterviewDetails.find({
+        }, function(err,details) {
+            res.json(details);
+        })
     });
 };
